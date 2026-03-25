@@ -13,5 +13,6 @@ const upload = require("../middlewares/file.middleware");
 interviewRouter.post("/", authmiddleware.authUser, upload.single("resume"), interviewController.generateReportController)
 interviewRouter.get("/all", authmiddleware.authUser, interviewController.getReportsController)
 interviewRouter.get("/:id", authmiddleware.authUser, interviewController.getReportByIdController)
+interviewRouter.post("/resume-pdf/:id", authmiddleware.authUser, interviewController.generatePdfController)
 
 module.exports = interviewRouter;

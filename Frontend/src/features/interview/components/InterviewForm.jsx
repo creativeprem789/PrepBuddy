@@ -9,6 +9,7 @@ const InterviewForm = () => {
     const [notes, setNotes] = useState('');
     const [file, setFile] = useState(null);
     const [status, setStatus] = useState(null); // 'success', 'error'
+    const [errorMessage, setErrorMessage] = useState('');
     const fileInputRef = useRef(null);
 
     const handleFileChange = (e) => {
@@ -18,12 +19,21 @@ const InterviewForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!jobDesc || !notes) {
+        
+        if (!jobDesc.trim() || !notes.trim()) {
             setStatus('error');
+            setErrorMessage('Please fill in both the job description and notes first.');
+            return;
+        }
+
+        if (!file) {
+            setStatus('error');
+            setErrorMessage('Please upload a resume (PDF) first.');
             return;
         }
 
         setStatus(null);
+        setErrorMessage('');
         
         try {
             const report = await generateReport({ 
@@ -34,7 +44,6 @@ const InterviewForm = () => {
             
             if (report) {
                 setStatus('success');
-                // Brief delay to show success state before navigating
                 setTimeout(() => {
                     navigate(`/interview/${report._id}`);
                 }, 1500);
@@ -42,6 +51,7 @@ const InterviewForm = () => {
         } catch (error) {
             console.error('Submission failed:', error);
             setStatus('error');
+            setErrorMessage(error.response?.data?.error || 'Submission failed. Please try again.');
         }
     };
 
@@ -50,9 +60,8 @@ const InterviewForm = () => {
             <div className="pb-container">
                 <div className="pb-card">
                     <form onSubmit={handleSubmit}>
-                        <div className="input-group">
-                            <label htmlFor="jobDescription">Job Description</label>
-                            <p className="pb-helper">Paste the details about the role you're hiring for.</p>
+                        <div className="input-group" style={{ marginBottom: '10px' }}>
+                            <label htmlFor="jobDescription" style={{ fontSize: '1rem', marginBottom: '4px' }}>Job Description</label>
                             <div className="pb-textarea-wrapper">
                                 <textarea 
                                     id="jobDescription"
@@ -60,14 +69,14 @@ const InterviewForm = () => {
                                     onChange={(e) => setJobDesc(e.target.value)}
                                     placeholder="e.g. Senior Frontend Engineer with React experience..."
                                     maxLength={2000}
+                                    style={{ minHeight: '120px', padding: '10px 10px 24px 10px' }}
                                 />
-                                <span className="pb-char-count">{jobDesc.length}/2000</span>
+                                <span className="pb-char-count" style={{ bottom: '6px' }}>{jobDesc.length}/2000</span>
                             </div>
                         </div>
 
-                        <div className="input-group">
-                            <label htmlFor="selfDescription">Your Self Description</label>
-                            
+                        <div className="input-group" style={{ marginBottom: '10px' }}>
+                            <label htmlFor="selfDescription" style={{ fontSize: '1rem', marginBottom: '4px' }}>Your Notes</label>
                             <div className="pb-textarea-wrapper">
                                 <textarea 
                                     id="notes"
@@ -75,13 +84,14 @@ const InterviewForm = () => {
                                     onChange={(e) => setNotes(e.target.value)}
                                     placeholder="e.g. Discussed system design, noted strong communication skills..."
                                     maxLength={3000}
+                                    style={{ minHeight: '120px', padding: '10px 10px 24px 10px' }}
                                 />
-                                <span className="pb-char-count">{notes.length}/3000</span>
+                                <span className="pb-char-count" style={{ bottom: '6px' }}>{notes.length}/3000</span>
                             </div>
                         </div>
 
                         <div className="input-group">
-                            <label>Resume (Optional)</label>
+                            <label>Resume (Required)</label>
                             <div 
                                 className={`pb-upload-area ${file ? 'has-file' : ''}`}
                                 onClick={() => fileInputRef.current.click()}
@@ -110,7 +120,7 @@ const InterviewForm = () => {
 
                         {status === 'error' && (
                             <div className="pb-alert pb-alert-error">
-                                <p>Ops! Please fill in both the job description and notes first.</p>
+                                <p>{errorMessage}</p>
                             </div>
                         )}
 
@@ -128,8 +138,8 @@ const InterviewForm = () => {
                             >
                                 {contextLoading ? (
                                     <>
-                                        <span className="spinner"></span>
-                                        Generating...
+                                        <div className="button-dots"><span></span><span></span><span></span></div>
+                                        Connecting to AI...
                                     </>
                                 ) : "Generate Report"}
                             </button>

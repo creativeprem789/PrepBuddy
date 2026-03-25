@@ -91,20 +91,32 @@ Instructions:
 - Provide a structured 7-day preparation plan.
 - Ensure every field in the response is filled. Do not leave any section empty.
 - The matchScore must be a NUMBER between 0 and 100.
-- Return the result strictly as JSON matching the provided schema.
+- Return the result strictly as a valid JSON object matching the following schema. Do not enclose it in markdown formatting backticks.
+
+Schema:
+{
+  "matchScore": number,
+  "technicalQuestions": [ { "question": string, "intention": string, "answer": string } ],
+  "behavioralQuestions": [ { "question": string, "intention": string, "answer": string } ],
+  "skillGaps": [ { "skill": string, "severity": "low" | "medium" | "high" } ],
+  "preparationTips": [ { "day": number, "focus": string, "tasks": [string] } ]
+}
 `
 
     const response = await ai.models.generateContent({
         model: "gemini-2.5-flash",
-        contents: prompt,
-        config: {
-            responseMimeType: "application/json",
-            responseSchema: interviewReportSchema
-        }
+        contents: prompt
     })
 
-    console.log("RAW AI response:", response.text);
-    return JSON.parse(response.text)
+    let textStr = response.text;
+    if (textStr.startsWith("\`\`\`json")) {
+        textStr = textStr.replace(/^\`\`\`json\s*/, "").replace(/\s*\`\`\`$/, "");
+    } else if (textStr.startsWith("\`\`\`")) {
+        textStr = textStr.replace(/^\`\`\`\s*/, "").replace(/\s*\`\`\`$/, "");
+    }
+    
+    console.log("RAW AI response:", textStr);
+    return JSON.parse(textStr)
 }
 
 module.exports = generateInterviewReport;

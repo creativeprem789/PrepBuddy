@@ -1,22 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  // Brand Palette (Light & Professional)
-  --primary: #2563eb;
-  --primary-hover: #1d4ed8;
-  --primary-light: #eff6ff;
+  // Brand Palette (Peach & Dark Theme)
+  --primary: #ffccb6;
+  --primary-hover: #ffb399;
+  --primary-light: rgba(255, 204, 182, 0.15);
   
-  --bg-main: #fcfcfd;
-  --bg-subtle: #f8fafc;
+  --bg-main: #2d2d2d;
+  --bg-subtle: #2d2d2d;
   
-  --card-bg: #ffffff;
-  --card-border: #e2e8f0;
-  --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -4px rgba(0, 0, 0, 0.02);
-  --card-shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  --card-bg: #141111;
+  --card-border: #3d3d3d;
+  --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+  --card-shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.7), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
 
-  --text-main: #0f172a;
-  --text-muted: #64748b;
-  --text-inverse: #ffffff;
+  --text-main: #ffede6;
+  --text-muted: #b8aba5;
+  --text-inverse: #2d1a13;
 
   --success: #10b981;
   --error: #ef4444;

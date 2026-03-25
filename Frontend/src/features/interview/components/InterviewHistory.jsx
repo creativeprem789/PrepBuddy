@@ -9,8 +9,8 @@ const InterviewHistory = () => {
     if (loading && reports.length === 0) {
         return (
             <div className="pb-history-loading">
-                <span className="spinner"></span>
-                <p>Loading your history...</p>
+                <div className="doc-loader"></div>
+                <p className="loading-text">Loading your history<span>.</span><span>.</span><span>.</span></p>
             </div>
         );
     }
