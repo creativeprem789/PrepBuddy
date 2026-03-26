@@ -56,7 +56,7 @@ const Register = () => {
                                 <line x1="8" y1="23" x2="16" y2="23"></line>
                             </svg>
                         </div>
-                    </div>
+                    </div> 
                 </section>
 
                 {/* Right Panel - Action */}
