@@ -1,18 +1,18 @@
 // ── Shared Variables (mirrors home.scss theme) ────────────────────────────────
-$bg-page: #0d1117;
-$bg-card: #161b22;
-$bg-panel: #1c2230;
-$bg-input: #1e2535;
-$border-color: #2a3348;
-$text-primary: #e6edf3;
-$text-muted: #7d8590;
-$accent: #ff2d78;
-$font-stack: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$bg-page: #ffffff;
+$bg-card: #ffffff;
+$bg-panel: #f0f0f0;
+$bg-input: #ffffff;
+$border-color: #000000;
+$text-primary: #000000;
+$text-muted: #333333;
+$accent: #CCFF00;
+$font-stack: var(--font-body, monospace);
 
 // severity palette
-$severity-high: #ff4d4d;
-$severity-medium: #f5a623;
-$severity-low: #3fb950;
+$severity-high: #ff0000;
+$severity-medium: #ff9900;
+$severity-low: #00cc00;
 
 *::-webkit-scrollbar {
     display: none;
@@ -43,9 +43,10 @@ $severity-low: #3fb950;
     max-width: 1280px;
     margin: 0 auto;
     background-color: $bg-card;
-    border: 1px solid $border-color;
-    border-radius: 1rem;
+    border: 4px solid $border-color;
+    border-radius: 0;
     overflow: hidden;
+    box-shadow: 16px 16px 0px 0px $border-color;
 
     @media (min-width: 992px) {
         flex-direction: row;
@@ -55,12 +56,12 @@ $severity-low: #3fb950;
 
 .interview-divider {
     width: 100%;
-    height: 1px;
+    height: 4px;
     background-color: $border-color;
     flex-shrink: 0;
 
     @media (min-width: 992px) {
-        width: 1px;
+        width: 4px;
         height: auto;
     }
 }
@@ -104,8 +105,8 @@ $severity-low: #3fb950;
         gap: 0.6rem;
         padding: 0.5rem 0.75rem;
         background: $bg-input;
-        border: 1px solid $border-color;
-        border-radius: 0.5rem;
+        border: 3px solid $border-color;
+        border-radius: 0;
         color: $text-muted;
         font-family: $font-stack;
         font-size: 0.8rem;
@@ -205,13 +206,15 @@ $severity-low: #3fb950;
 
 .q-card {
     background-color: $bg-panel;
-    border: 1px solid $border-color;
-    border-radius: 0.6rem;
+    border: 3px solid $border-color;
+    border-radius: 0;
     overflow: hidden;
-    transition: border-color 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 4px 4px 0px 0px $border-color;
 
     &:hover {
-        border-color: lighten($border-color, 8%);
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0px 0px $border-color;
     }
 
     &__header {
@@ -284,7 +287,7 @@ $severity-low: #3fb950;
         text-transform: uppercase;
         letter-spacing: 0.06em;
         padding: 0.15rem 0.5rem;
-        border-radius: 0.25rem;
+        border-radius: 0;
         width: fit-content;
 
         &--intention {
@@ -500,10 +503,10 @@ $severity-low: #3fb950;
 
 .skill-tag {
     font-size: 0.775rem;
-    font-weight: 500;
+    font-weight: 700;
     padding: 0.3rem 0.7rem;
-    border-radius: 0.4rem;
-    border: 1px solid;
+    border-radius: 0;
+    border: 2px solid;
     cursor: default;
 
     &--high {

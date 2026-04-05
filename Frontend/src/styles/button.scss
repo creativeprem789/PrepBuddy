@@ -1,16 +1,27 @@
 .button{
     padding: 0.5rem 1rem;
     font-weight: 700;
-    border: none;
-    border-radius: 4px;
+    border: 3px solid #000000;
+    border-radius: 0;
     cursor: pointer;    
     transition: all 0.2s ease-in-out;
-    &.primary-button{
-        background-color: #71db68;
-        color: rgb(7, 7, 7);
-    }
-    &:active{
-        transform: scale(0.98);
-    }
+    box-shadow: 4px 4px 0px 0px #000000;
+    font-family: var(--font-heading, "Space Grotesk", sans-serif);
+    text-transform: uppercase;
+    background-color: #ffffff;
+    color: #000000;
 
+    &.primary-button{
+        background-color: var(--primary, #CCFF00);
+    }
+    
+    &:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0px 0px #000000;
+    }
+    
+    &:active{
+        transform: translate(2px, 2px);
+        box-shadow: 2px 2px 0px 0px #000000;
+    }
 }
