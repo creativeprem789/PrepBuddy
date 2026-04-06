@@ -1,11 +1,11 @@
 :root {
     --color-charcoal: #000000;
     --color-matte-black: #000000;
-    --color-premium-white: #ffffff;
+    --color-premium-white: #faf9f6;
     --color-orange-red: var(--primary);
     --color-orange-glow: #000000;
     --color-glass-border: #000000;
-    --color-glass-bg: #ffffff;
+    --color-glass-bg: #faf9f6;
 }
 
 main.auth-page {
@@ -265,7 +265,7 @@ main.auth-page {
                             font-size: 1rem;
                             font-family: var(--font-body);
                             transition: var(--transition-smooth);
-                            background: #ffffff;
+                            background: #faf9f6;
 
                             &::placeholder { color: #888; }
 
@@ -355,7 +355,7 @@ main.auth-page {
             }
 
             .secondary-button {
-                background: #ffffff;
+                background: #faf9f6;
                 color: #000000;
                 border: 3px solid #000000;
                 padding: 0.75rem;

@@ -1,0 +1,215 @@
+.landing-page {
+    min-height: 100vh;
+    background-color: #faf9f6;
+    color: #000000;
+    font-family: var(--font-heading, "Space Grotesk", sans-serif);
+    display: flex;
+    flex-direction: column;
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 3rem;
+        border-bottom: 4px solid #000000;
+        background-color: #faf9f6;
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            background-color: #bef264;
+            padding: 0.5rem 1rem;
+            border: 3px solid #000000;
+            box-shadow: 4px 4px 0px 0px #000000;
+            transform: rotate(-2deg);
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+            
+            .nav-button {
+                text-decoration: none;
+                padding: 0.75rem 1.5rem;
+                font-weight: 700;
+                font-size: 1.1rem;
+                border: 3px solid #000000;
+                box-shadow: 4px 4px 0px 0px #000000;
+                text-transform: uppercase;
+                transition: transform 0.2s, box-shadow 0.2s;
+                
+                &.login {
+                    background-color: #faf9f6;
+                    color: #000000;
+                }
+                
+                &.register {
+                    background-color: #7dd3fc; /* electric blue */
+                    color: #000000;
+                }
+
+                &:hover {
+                    transform: translate(-2px, -2px);
+                    box-shadow: 6px 6px 0px 0px #000000;
+                }
+
+                &:active {
+                    transform: translate(2px, 2px);
+                    box-shadow: 2px 2px 0px 0px #000000;
+                }
+            }
+        }
+    }
+
+    .hero-content {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        padding: 4rem;
+        gap: 4rem;
+        
+        .text-section {
+            flex: 1;
+            
+            h1 {
+                font-size: 4.5rem;
+                font-weight: 900;
+                line-height: 1.1;
+                margin-bottom: 2rem;
+                text-transform: uppercase;
+                position: relative;
+                
+                .highlight {
+                    background-color: #bef264;
+                    padding: 0 1rem;
+                    border: 4px solid #000000;
+                    display: inline-block;
+                    transform: rotate(1deg);
+                    box-shadow: 6px 6px 0px 0px #000000;
+                    margin-top: 1rem;
+                }
+            }
+
+            p {
+                font-size: 1.5rem;
+                font-weight: 500;
+                margin-bottom: 3rem;
+                max-width: 600px;
+                border-left: 6px solid #000000;
+                padding-left: 1.5rem;
+            }
+
+            .cta-container {
+                display: flex;
+                gap: 1.5rem;
+
+                .cta-main {
+                    text-decoration: none;
+                    font-size: 1.5rem;
+                    font-weight: 800;
+                    padding: 1rem 2rem;
+                    background-color: #bef264;
+                    color: #000000;
+                    border: 4px solid #000000;
+                    box-shadow: 8px 8px 0px 0px #000000;
+                    text-transform: uppercase;
+                    transition: all 0.2s;
+
+                    &:hover {
+                        transform: translate(-4px, -4px);
+                        box-shadow: 12px 12px 0px 0px #000000;
+                    }
+                    
+                    &:active {
+                        transform: translate(4px, 4px);
+                        box-shadow: 4px 4px 0px 0px #000000;
+                    }
+                }
+            }
+        }
+
+        .visual-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            
+            .visual-card {
+                background-color: #faf9f6;
+                border: 4px solid #000000;
+                padding: 3rem;
+                box-shadow: 16px 16px 0px 0px #7dd3fc;
+                transform: rotate(-3deg);
+                text-align: center;
+                transition: transform 0.3s;
+
+                &:hover {
+                    transform: rotate(0deg);
+                }
+                
+                h3 {
+                    font-size: 2.5rem;
+                    margin-bottom: 1.5rem;
+                    text-transform: uppercase;
+                }
+                
+                ul {
+                    list-style: none;
+                    padding: 0;
+                    text-align: left;
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                    
+                    li {
+                        margin-bottom: 1.25rem;
+                        display: flex;
+                        gap: 1rem;
+                        align-items: center;
+                        
+                        &::before {
+                            content: '→';
+                            font-weight: 900;
+                            color: #000;
+                            background-color: #bef264;
+                            padding: 0.1rem 0.5rem;
+                            border: 2px solid #000;
+                            box-shadow: 2px 2px 0px #000;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 900px) {
+        .navbar {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .hero-content {
+            flex-direction: column;
+            padding: 2rem;
+            gap: 3rem;
+            text-align: center;
+
+            .text-section {
+                h1 {
+                    font-size: 3rem;
+                }
+                p {
+                    border-left: none;
+                    border-bottom: 4px solid #000;
+                    padding-left: 0;
+                    padding-bottom: 1.5rem;
+                    margin: 0 auto 2rem auto;
+                }
+                .cta-container {
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}

@@ -15,7 +15,7 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         await handleRegister({ username, email, password });
-        navigate("/");
+        navigate("/dashboard");
     }
 
     if (loading) {
@@ -157,7 +157,7 @@ const Register = () => {
                     </div>
 
                     <footer className="panel-footer">
-                        <div className="copyright">© 2026 Antigravity Inc.</div>
+                        <div className="copyright">© 2026 PrepBuddy</div>
                         <div className="footer-links">
                             <a href="#">Privacy Policy</a>
                             <div className="lang-dropdown">

@@ -8,11 +8,11 @@
     box-shadow: 4px 4px 0px 0px #000000;
     font-family: var(--font-heading, "Space Grotesk", sans-serif);
     text-transform: uppercase;
-    background-color: #ffffff;
+    background-color: #faf9f6;
     color: #000000;
 
     &.primary-button{
-        background-color: var(--primary, #CCFF00);
+        background-color: var(--primary, #bef264);
     }
     
     &:hover {

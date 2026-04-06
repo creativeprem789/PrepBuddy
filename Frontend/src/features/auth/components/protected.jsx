@@ -9,7 +9,7 @@ const Protected = ({children}) => {
         return (<main><h3>Loading...</h3></main>);
     }
     if(!user) {
-        return <Navigate to={"/login"} />
+        return <Navigate to={"/"} />
     }
     return children;
 }

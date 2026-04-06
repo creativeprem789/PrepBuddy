@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Main document body -->
+  <path d="M15 10 H65 L85 30 V90 H15 Z" fill="#faf9f6" stroke="#000" stroke-width="6" stroke-linejoin="round" />
+  
+  <!-- Folded corner in pastel lime green -->
+  <path d="M65 10 V30 H85" fill="#bef264" stroke="#000" stroke-width="6" stroke-linejoin="round" />
+  
+  <!-- "Interview Report" content -->
+  <!-- Header/Title -->
+  <rect x="25" y="40" width="45" height="8" fill="#000" rx="4" />
+  
+  <!-- Body Lines -->
+  <rect x="25" y="58" width="50" height="5" fill="#000" rx="2.5" />
+  <rect x="25" y="70" width="50" height="5" fill="#000" rx="2.5" />
+  <rect x="25" y="82" width="30" height="5" fill="#000" rx="2.5" />
+  
+  <!-- A little blue rating/grade highlight -->
+  <circle cx="72" cy="80" r="7" fill="#7dd3fc" stroke="#000" stroke-width="4" />
+</svg>

@@ -14,7 +14,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         await handleLogin({ email, password });
-        navigate("/");
+        navigate("/dashboard");
     }
 
     if (loading) {
@@ -140,7 +140,7 @@ const Login = () => {
                     </div>
 
                     <footer className="panel-footer">
-                        <div className="copyright">© 2026 Antigravity Inc.</div>
+                        <div className="copyright">© 2026 PrepBuddy</div>
                         <div className="footer-links">
                             <a href="#">Contact Us</a>
                             <div className="lang-dropdown">

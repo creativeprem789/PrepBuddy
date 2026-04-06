@@ -8,7 +8,7 @@ const Navbar = () => {
 
     const onLogout = async () => {
         await handleLogout();
-        navigate('/login');
+        navigate('/');
     };
 
     return (
