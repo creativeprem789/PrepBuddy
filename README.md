@@ -17,7 +17,9 @@ PrepBuddy is an AI-powered interview preparation platform designed to help candi
 
 ---
 
-## 🚀 Live Demo: [https://prepbuddy-ai.vercel.app]
+## 🚀 Live Demo: [https://prep-buddy-xi.vercel.app/]
+<img width="1902" height="911" alt="image" src="https://github.com/user-attachments/assets/9856226b-e5b1-462c-9eab-3bdd6c2881f1" />
+
 
 ---
 
